@@ -4,10 +4,15 @@
   "description": "UPN 3D model",
   "main": "index.js",
   "scripts": {
+    "vercel-build": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "lint": "standard",
     "dev": "webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DiegoSullon/UPN-ThreeJS.git"
   },
   "author": "Diego Sullon",
   "license": "ISC",
