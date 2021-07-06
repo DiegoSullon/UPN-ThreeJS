@@ -240,40 +240,41 @@ function init () {
   bMesh = new THREE.Mesh(bGeo, bMat)
   scene.add(bMesh)
 
-  // function onClick (event) {
-  //   // llamarmodalMapa();
-  //   if (INTERSECTED != null) {
-  //     if (INTERSECTED.name == 'panel1') {
-  //       llamarmodalMapa()
-  //       document.exitPointerLock()
-  //     }
-  //     if (INTERSECTED.name == 'panel2') {
-  //       llamarmodalMapa()
-  //       document.exitPointerLock()
-  //     }
-  //     if (INTERSECTED.name == 'caja') {
-  //       llamarmodalCaja()
-  //       document.exitPointerLock()
-  //     }
-  //     if (INTERSECTED.name == 'computadora1') {
-  //       llamarmodalBiblioteca()
-  //       document.exitPointerLock()
-  //     }
-  //     if (INTERSECTED.name == 'book1') {
-  //       llamarmodalEstructura()
-  //       document.exitPointerLock()
-  //     }
-  //     if (INTERSECTED.name == 'book2') {
-  //       llamarmodalPoo()
-  //       document.exitPointerLock()
-  //     }
-  //     if (INTERSECTED.name == 'cajita2') {
-  //       llamarmodalBeca()
-  //       document.exitPointerLock()
-  //     }
-  //     console.log('INTERSECTED: ' + INTERSECTED.name)
-  //   }
-  // }
+  function onClick (event) {
+    // llamarmodalMapa();
+    if (INTERSECTED !== null) {
+      if (INTERSECTED.name === 'panel1') {
+        llamarmodalMapa()
+        document.exitPointerLock()
+      }
+      if (INTERSECTED.name === 'panel2') {
+        llamarmodalMapa()
+        document.exitPointerLock()
+      }
+      if (INTERSECTED.name === 'caja') {
+        llamarmodalCaja()
+        document.exitPointerLock()
+      }
+      if (INTERSECTED.name === 'computadora1') {
+        llamarmodalBiblioteca()
+        document.exitPointerLock()
+      }
+      if (INTERSECTED.name === 'book1') {
+        llamarmodalEstructura()
+        document.exitPointerLock()
+      }
+      if (INTERSECTED.name === 'book2') {
+        llamarmodalPoo()
+        document.exitPointerLock()
+      }
+      if (INTERSECTED.name === 'cajita2') {
+        llamarmodalBeca()
+        document.exitPointerLock()
+      }
+      console.log('INTERSECTED: ' + INTERSECTED.name)
+    }
+  }
+
   // characters
   const loader = new FBXLoader()
   loader.load('./src/assets/models/secretaria/Texting.fbx', function (object) {
@@ -316,7 +317,7 @@ function init () {
   })
 
   document.addEventListener('mousemove', onDocumentMouseMove, false)
-  // document.addEventListener('click', onClick, false)
+  document.addEventListener('click', onClick, false)
 }
 function onDocumentMouseMove (event) {
   event.preventDefault()
@@ -505,4 +506,28 @@ function render () {
   }
 
   renderer.render(scene, camera)
+}
+function llamarmodalCaja () {
+  // eslint-disable-next-line no-undef
+  $('#modalCaja').modal('show') // abrir
+}
+function llamarmodalBiblioteca () {
+  // eslint-disable-next-line no-undef
+  $('#modalBiblioteca').modal('show') // abrir
+}
+function llamarmodalEstructura () {
+  // eslint-disable-next-line no-undef
+  $('#modalEstructura').modal('show') // abrir
+}
+function llamarmodalPoo () {
+  // eslint-disable-next-line no-undef
+  $('#modalPoo').modal('show') // abrir
+}
+function llamarmodalMapa () {
+  // eslint-disable-next-line no-undef
+  $('#modalMapa').modal('show') // abrir
+}
+function llamarmodalBeca () {
+  // eslint-disable-next-line no-undef
+  $('#modalBeca').modal('show') // abrir
 }

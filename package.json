@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "cannon": "^0.6.2",
+    "jquery": "^3.6.0",
     "three": "^0.130.1"
   },
   "devDependencies": {

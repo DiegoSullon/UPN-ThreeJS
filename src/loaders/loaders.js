@@ -153,7 +153,7 @@ class CargarModelos {
       gltf.scene.rotateY(rotacionY)
       this.scene.add(gltf.scene)
 
-      // console.clear()
+      console.clear()
     })
   }
 }
