@@ -8,7 +8,7 @@ class CargarModelos {
     this.world = world
     // CARGAR ESTRUCTURAS GLB (ubicacion,nombre de archivo)
 
-    this._LoadModelGlb('./src/assets/models/upn/', 'upnx.glb', 50, 0)
+    this._LoadModelGlb('./assets/models/', 'upnx.glb', 50, 0)
   }
 
   _LoadModelGlb (path, modelFile, posicionY, rotacionY) {

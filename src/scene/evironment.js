@@ -14,12 +14,12 @@ class LoadScene {
     l = new Lights(this.scene, this.ambientLightColor)
     const loader = new THREE.CubeTextureLoader()
     const texture = loader.load([
-      './src/assets/models/environment/resources/posx.jpg',
-      './src/assets/models/environment/resources/negx.jpg',
-      './src/assets/models/environment/resources/posy.jpg',
-      './src/assets/models/environment/resources/negy.jpg',
-      './src/assets/models/environment/resources/posz.jpg',
-      './src/assets/models/environment/resources/negz.jpg'
+      './assets/models/posx.jpg',
+      './assets/models/negx.jpg',
+      './assets/models/posy.jpg',
+      './assets/models/negy.jpg',
+      './assets/models/posz.jpg',
+      './assets/models/negz.jpg'
     ])
     this.scene.background = texture
   }

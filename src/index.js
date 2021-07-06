@@ -277,7 +277,7 @@ function init () {
 
   // characters
   const loader = new FBXLoader()
-  loader.load('./src/assets/models/secretaria/Texting.fbx', function (object) {
+  loader.load('./src/assets/models/Texting.fbx', function (object) {
     const boxc = new CANNON.Box(new CANNON.Vec3(1, 13, 1))
     const boxCBody = new CANNON.Body({ shape: boxc, mass: 0 })
 
@@ -299,7 +299,7 @@ function init () {
     boxCBody.position.copy(object.position)
   })
   const loader2 = new FBXLoader()
-  loader2.load('./src/assets/models/secretaria/Typing.fbx', function (object) {
+  loader2.load('./src/assets/models/Typing.fbx', function (object) {
     mixers2 = new THREE.AnimationMixer(object)
 
     const action = mixers2.clipAction(object.animations[0])

@@ -1,8 +1,10 @@
+const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   mode: 'production',
   output: {
+    path: path.resolve(__dirname, 'dist'),
     filename: 'app.bundle.js'
   },
   plugins: [
@@ -25,6 +27,15 @@ module.exports = {
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.(glb|fbx)$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            outputPath: 'assets/models/'
+          }
+        }
       }
     ]
   }

@@ -18,6 +18,7 @@
   "license": "ISC",
   "dependencies": {
     "cannon": "^0.6.2",
+    "file-loader": "^6.2.0",
     "jquery": "^3.6.0",
     "three": "^0.130.1"
   },
