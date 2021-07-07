@@ -143,46 +143,39 @@ function init () {
 
   poste1 = new THREE.PointLight(0xd0d32d, 2, 50)
   poste1.position.set(94, 79.5, 159.8)
-  // poste1.castShadow=true;
   poste1.add(new THREE.Mesh(sphere, new THREE.MeshBasicMaterial({ color: 0xe8dbdb })))
   scene.add(poste1)
 
   poste2 = new THREE.PointLight(0xd0d32d, 2, 50)
   poste2.position.set(94, 79.5, 363.3)
-  // poste2.castShadow=true;
   poste2.add(new THREE.Mesh(sphere, new THREE.MeshBasicMaterial({ color: 0xe8dbdb })))
   scene.add(poste2)
 
   poste3 = new THREE.PointLight(0xd0d32d, 2, 50)
   poste3.position.set(336, 79.5, 159.8)
-  // poste3.castShadow=true;
   poste3.add(new THREE.Mesh(sphere, new THREE.MeshBasicMaterial({ color: 0xe8dbdb })))
   scene.add(poste3)
 
   poste4 = new THREE.PointLight(0xd0d32d, 2, 50)
   poste4.position.set(336, 79.5, 363.3)
-  // poste4.castShadow=true;
   poste4.add(new THREE.Mesh(sphere, new THREE.MeshBasicMaterial({ color: 0xe8dbdb })))
   scene.add(poste4)
 
   // LuzPabellonA
   lpabellonA = new THREE.PointLight(0xd0d32d, 2, 50)
   lpabellonA.position.set(90, 69.5, 50)
-  // lpabellonA.castShadow=true;
   lpabellonA.add(new THREE.Mesh(sphere, new THREE.MeshBasicMaterial({ color: 0xdef48a })))
   scene.add(lpabellonA)
 
   // LuzPabellonB
   lpabellonB = new THREE.PointLight(0xd0d32d, 2, 50)
   lpabellonB.position.set(93.5, 67.5, 523)
-  // lpabellonB.castShadow=true;
   lpabellonB.add(new THREE.Mesh(sphere, new THREE.MeshBasicMaterial({ color: 0xdef48a })))
   scene.add(lpabellonB)
 
   // Biblioteca
   lbiblioteca = new THREE.PointLight(0xd0d32d, 2, 50)
   lbiblioteca.position.set(200, 69.5, 500)
-  // lbiblioteca.castShadow=true;
   lbiblioteca.add(new THREE.Mesh(sphere, new THREE.MeshBasicMaterial({ color: 0xdef48a })))
   scene.add(lbiblioteca)
 
@@ -214,7 +207,7 @@ function init () {
   const plane = new CANNON.Plane()
   const planebody = new CANNON.Body({ shape: plane, mass: 0 })
   planebody.quaternion.setFromAxisAngle(new CANNON.Vec3(1, 0, 0), -Math.PI / 2)
-  planebody.position.set(0, 0, 0)
+  planebody.position.set(0, 50, 0)
   world.addBody(planebody)
 
   const box = new CANNON.Box(new CANNON.Vec3(3, 3, 3))
