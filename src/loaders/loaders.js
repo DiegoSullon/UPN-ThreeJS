@@ -12,6 +12,9 @@ class CargarModelos {
   }
 
   _LoadModelGlb (path, modelFile, posicionY, rotacionY) {
+    // eslint-disable-next-line no-undef
+    $('#modalSpinner').modal('show')
+    document.exitPointerLock()
     const objects = []
     const loader = new GLTFLoader()
     loader.setPath(path)
@@ -156,6 +159,8 @@ class CargarModelos {
       this.scene.add(gltf.scene)
 
       console.clear()
+      // eslint-disable-next-line no-undef
+      $('#modalSpinner').modal('hide')
     })
   }
 }
