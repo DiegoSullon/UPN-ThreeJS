@@ -30,7 +30,9 @@ class CargarModelos {
       }
       for (let i = 1; i <= 6; i++) {
         const cubo = 'cubo' + i.toString()
-        objects.push(gltf.scene.getObjectByName(cubo))
+        if (cubo !== 'cubo3') {
+          objects.push(gltf.scene.getObjectByName(cubo))
+        }
       }
       for (let i = 1; i <= 4; i++) {
         const descanso = 'descansoaa' + i.toString()

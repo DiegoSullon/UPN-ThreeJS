@@ -29,6 +29,8 @@ const clock2 = new THREE.Clock()
 let world
 const timeStamp = 1.0 / 60.0
 let boxBody
+let floorBody
+let floorMesh
 let sphereShape, sphereBody
 let bMesh
 
@@ -207,8 +209,19 @@ function init () {
   const plane = new CANNON.Plane()
   const planebody = new CANNON.Body({ shape: plane, mass: 0 })
   planebody.quaternion.setFromAxisAngle(new CANNON.Vec3(1, 0, 0), -Math.PI / 2)
-  planebody.position.set(0, 50, 0)
+  planebody.position.set(0, 0, 0)
   world.addBody(planebody)
+
+  // floor
+  const floorShape = new CANNON.Box(new CANNON.Vec3(300, 1, 1000))
+  floorBody = new CANNON.Body({ shape: floorShape, mass: 0 })
+  floorBody.position.set(-190, 51, 300)
+  world.addBody(floorBody)
+
+  const floor = new THREE.BoxGeometry(300, 1, 1000)
+  const floorMat = new THREE.MeshLambertMaterial({ color: 0xffffff })
+  floorMesh = new THREE.Mesh(floor, floorMat)
+  scene.add(floorMesh)
 
   const box = new CANNON.Box(new CANNON.Vec3(3, 3, 3))
   boxBody = new CANNON.Body({ shape: box, mass: 2 })
@@ -270,7 +283,7 @@ function init () {
 
   // characters
   const loader = new FBXLoader()
-  loader.load('./src/assets/models/Texting.fbx', function (object) {
+  loader.load('./assets/models/Texting.fbx', function (object) {
     const boxc = new CANNON.Box(new CANNON.Vec3(1, 13, 1))
     const boxCBody = new CANNON.Body({ shape: boxc, mass: 0 })
 
@@ -292,7 +305,7 @@ function init () {
     boxCBody.position.copy(object.position)
   })
   const loader2 = new FBXLoader()
-  loader2.load('./src/assets/models/Typing.fbx', function (object) {
+  loader2.load('./assets/models/Typing.fbx', function (object) {
     mixers2 = new THREE.AnimationMixer(object)
 
     const action = mixers2.clipAction(object.animations[0])
@@ -442,14 +455,8 @@ function animate () {
   if (mixers) mixers.update(delta)
   if (mixers2) mixers2.update(delta2)
 
-  // renderer.render(scene, camera);
-  // controls.update(clock1.getDelta());
-  // controls2.update(clock2.getDelta());
   render()
 }
-// function animate2 () {
-//   window.requestAnimationFrame(animate2)
-// }
 
 function render () {
   world.step(timeStamp)
@@ -458,6 +465,10 @@ function render () {
 
   bMesh.position.copy(boxBody.position)
   bMesh.quaternion.copy(boxBody.quaternion)
+
+  floorMesh.position.copy(floorBody.position)
+  floorMesh.quaternion.copy(floorBody.quaternion)
+
   for (let i = 0; i < balls.length; i++) {
     balls[i].position.copy(ballsShape[i].position)
     balls[i].quaternion.copy(ballsShape[i].quaternion)
